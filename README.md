@@ -71,20 +71,20 @@ sleep $((RANDOM % 4 + 1))
 Run every 5 minutes:
 
 ```bash
-*/5 * * * * /usr/bin/bash /home/mahdi-darabi/projects/mahdidarabi/healthchecks.io/scripts/hc-ping.sh - <PING_URL> >/dev/null 2>&1
+*/5 * * * * /usr/bin/bash scripts/hc-ping.sh - <PING_URL> >/dev/null 2>&1
 ```
 
 Run a custom script daily at 03:15:
 
 ```bash
-15 3 * * * /usr/bin/bash /home/mahdi-darabi/projects/mahdidarabi/healthchecks.io/scripts/hc-ping.sh /home/mahdi-darabi/projects/mahdidarabi/healthchecks.io/scripts/sleep.job.sh <PING_URL> >/dev/null 2>&1
+15 3 * * * /usr/bin/bash scripts/hc-ping.sh scripts/sleep.job.sh <PING_URL> >/dev/null 2>&1
 ```
 
 Tip: keep your `<PING_URL>` in a file with restricted permissions and reference it, e.g.:
 
 ```bash
 PING_URL="$(cat /home/mahdi-darabi/.secrets/hc_url)"
-/usr/bin/bash /home/mahdi-darabi/projects/mahdidarabi/healthchecks.io/scripts/hc-ping.sh - "$PING_URL"
+/usr/bin/bash scripts/hc-ping.sh - "$PING_URL"
 ```
 
 ## Troubleshooting
