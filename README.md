@@ -83,7 +83,7 @@ Run a custom script daily at 03:15:
 Tip: keep your `<PING_URL>` in a file with restricted permissions and reference it, e.g.:
 
 ```bash
-PING_URL="$(cat /home/mahdi-darabi/.secrets/hc_url)"
+PING_URL="$(cat .secrets/hc_url)"
 /usr/bin/bash scripts/hc-ping.sh - "$PING_URL"
 ```
 
